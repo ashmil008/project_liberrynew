@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<title>Login V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'images/bookicon.png'%}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util2.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main2.css'%}">
+
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('{% static 'images/bg-01.jpg' %}');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" action="add" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						add book
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "enter book name">
+						<input class="input100" type="text" name="book_name" placeholder="book name">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter auther name">
+						<input class="input100" type="text" name="auther_name" placeholder="auther name">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter type of book">
+						<input class="input100" type="text" name="type_book" placeholder="type book">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input" data-validate=" details">
+						<input class="input100" type="text" name="details" placeholder=" details">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input" data-validate=" book photo">
+						<input class="input100" type="file" name="book_photo" placeholder="book_photo">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+
+
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							add
+						</button>
+					</div>
+
+					<div class="text-center p-t-90">
+						<a class="txt1" href="lib">
+							back to home
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	<script src="{% static 'js/main2.js'%}"></script>
+
+</body>
+</html>

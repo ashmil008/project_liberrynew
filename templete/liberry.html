@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style10.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+ <style>
+     .sub-menu-wrap.open-menu{
+     max-height : 280px;
+     }
+     .sub-menu{
+     background : #fff;
+     padding : 20px;
+     margin : 20px;
+     }
+ </style>
+    
+
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <img src="{% static 'images/logo.png' %}" class="logo">
+            <ul>
+                <li><a href="add">add book</a></li>
+                <li><a href="{% url 'history_lib' %}">history</a></li>
+                <li><a href="{% url 'logout' %}">logout</a></li>
+            </ul>
+
+            <img src="{% static 'images/user.png' %}" class="user-pic" onclick="toggleMenu()">
+
+            <div class="sub-menu-wrap" id="subMenu" >
+                <div class="sub-menu" style="margin:20px">
+                    <div class="user-info">
+                        <img src="{% static 'images/user.png' %}">
+                        <h3> Ashmil </h3>
+                    </div>
+                    <hr>
+                    <a href="{% url 'editprofile' id=user.id %}" class="sub-menu-link">
+                        <img src="{% static 'images/profile.png' %}">
+                        <p>edit profile</p>
+                        <span>></span>
+                    </a>
+                    <a href="{% url 'passwordlib' id=user.id %}" class="sub-menu-link">
+                        <img src="{% static 'images/help.png' %}">
+                        <p>change password</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="{% static 'images/logout.png' %}">
+                        <p>logout</p>
+                        <span>></span>
+                    </a>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container">
+
+                <div class="mb-5">
+                    <div>
+                        <table class="table table-striped custom-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">book name</th>
+                                    <th scope="col">auther name</th>
+                                    <th scope="col">type of book</th>
+                                    <th scope="col">details</th>
+                                    <th scope="col">edit</th>
+                                    <th scope="col">delete</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for i in data %}
+                                <tr>
+                                    <td><a href="{% url 'details' id=i.id %}">{{ i.book_name}}</a></td>
+                                    <td>{{ i.auther_name }}</td>
+                                    <td>{{ i.type_book }}</td>
+                                    <td>{{ i.details }}</td>
+                                    <td><a href="{% url 'update' id=i.id %}" class="more"> <button class="btn btn-warning" role="button">edit</button></a></td>
+                                    <td><a href="{% url 'delete-book' id=i.id %}" class="more"> <button class="btn btn-danger" role="button">delete</button></a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    let subMenu = document.getElementById("subMenu");
+
+    function toggleMenu(){
+        subMenu.classList.toggle("open-menu");
+    }
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/stylereg.css'%}">
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <div class="booking-content">
+                <div class="booking-image">
+                    <img class="booking-img" src="{% static 'images/book.jpeg'%}" alt="Booking Image">
+                </div>
+                <div class="booking-form">
+                    <form id="booking-form" action="Login" method="post">
+                        {% csrf_token %}
+                        <h2>KMO COLLEGE LOGIN PAGE</h2>
+                        <div class="form-group form-input">
+                            <input type="text" name="name"  value="" required/>
+                            <label class="form-label">Your name</label>
+                        </div>
+                        <div class="form-group form-input">
+                            <input type="number" name="password"  value="" required/>
+                            <label class="form-label">password</label>
+                        </div>
+                        <div class="form-submit">
+                            <input type="submit" value="submit" class="submit"  />
+                            <a href="#" class="vertify-booking">Verify your booking info from your phone</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="{% static 'js/mainreg.js'%}"></script>
+</body>
+</html>
